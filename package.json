@@ -16,5 +16,19 @@
   },
   "bin": {
     "groqfmt": "bin/grofmt"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niklas-may/groqfmt-nodejs.git"
+  },
+  "keywords": [
+    "sanity",
+    "groq",
+    "fromatter",
+    "prettier"
+  ],
+  "bugs": {
+    "url": "https://github.com/niklas-may/groqfmt-nodejs/issues"
+  },
+  "homepage": "https://github.com/niklas-may/groqfmt-nodejs#readme"
 }
