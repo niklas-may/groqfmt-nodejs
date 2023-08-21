@@ -1,0 +1,20 @@
+{
+  "name": "groqfmt-nodejs",
+  "version": "0.0.1",
+  "description": "Fromat GROQ strings in Node.js",
+  "main": "index.js",
+  "author": "Niklas May <post@niklas-may.de>",
+  "license": "MIT",
+  "groqfmtBinaries": {
+    "darwin": "https://github.com/sanity-io/groqfmt/releases/download/v1.0.0/groqfmt-darwin-amd64",
+    "linux": "https://github.com/sanity-io/groqfmt/releases/download/v1.0.0/groqfmt-linux-arm",
+    "win32": "https://github.com/sanity-io/groqfmt/releases/download/v1.0.0/groqfmt-windows-amd64.exe"
+  },
+  "scripts": {
+    "dev": "npx nodemon dev.js",
+    "postinstall": "node postinstall.js"
+  },
+  "bin": {
+    "groqfmt": "bin/grofmt"
+  }
+}
