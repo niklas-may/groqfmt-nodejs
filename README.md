@@ -5,11 +5,21 @@ A Node.js wrapper for [Sanity´s Go implementation](https://github.com/sanity-io
 ## Usage
 
 ```JavaScript
-import formatGroq from 'groqfmt-nodejs'
+import { format } from 'groqfmt-nodejs'
+
+
+const query = `
+      *[_type == 'page'] {
+            mainSection {
+          pageTitle,
+          
+    gallery[] {}
+    `
 
 try {
-    return await formatGroq(groqQueryString)
+    const queryFormatted = await format(query);
+    // ...
 } catch(e) {
-    return e
+    // ...
 }
 ```
