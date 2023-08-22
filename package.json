@@ -5,6 +5,7 @@
   "main": "index.js",
   "author": "Niklas May <post@niklas-may.de>",
   "license": "MIT",
+  "types": "index.d.ts",
   "groqfmtBinaries": {
     "darwin": "https://github.com/sanity-io/groqfmt/releases/download/v1.0.0/groqfmt-darwin-amd64",
     "linux": "https://github.com/sanity-io/groqfmt/releases/download/v1.0.0/groqfmt-linux-arm",
