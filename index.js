@@ -10,15 +10,15 @@ async function format(str) {
 
   const strSanitized = str.replace(/"/g, "'");
 
-  const tempFile = path.join(dirName, "temp.groq");
-  const scriptFile = path.join(dirName, "bin/groqfmt");
+  const tempFilePath = path.join(dirName, "temp.groq");
+  const binPath = path.join(dirName, "bin/groqfmt");
 
   try {
-    result = await execProm(`echo "${strSanitized}" | tee ${tempFile} | ${scriptFile} ${tempFile} `);
+    result = await execProm(`echo "${strSanitized}" | tee ${tempFilePath} | ${binPath} ${tempFilePath} `);
     return result.stdout;
   } catch (ex) {
     throw new Error(ex);
   }
 }
 
-module.exports = format;
+module.exports = { format };

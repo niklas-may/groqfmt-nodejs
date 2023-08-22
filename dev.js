@@ -1,4 +1,4 @@
-const format = require("./index.js");
+const { format } = require("./index.js");
 
 const query = `
  
@@ -9,14 +9,14 @@ const query = `
           
     gallery[] {
       _key,
-      caption
+      caption,
        
     media {
       _type,
       type,
       type == "image" => {
         "image": image.asset->{
-        url,
+      url,
         'lqip': metadata.lqip,
         'ratio': metadata.dimensions.aspectRatio
       },
@@ -64,4 +64,4 @@ async function main() {
   }
 }
 
-main()
+main();
