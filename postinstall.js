@@ -27,7 +27,7 @@ async function install() {
     const binUrl = getBinUrl();
     const fileName = path.basename(binUrl).includes(".exe") ? "groqfmt.exe" : "groqfmt";
     const fileDir = path.join(process.cwd(), "bin");
-    const filePath = `${targetDir}/${fileName}`;
+    const filePath = `bin/${fileName}`;
     
     mkdirp(fileDir);
     await execPromise(`curl -L -o ${filePath} ${binUrl} && chmod +x ${filePath}`);
