@@ -1,7 +1,7 @@
 {
   "name": "groqfmt-nodejs",
   "version": "0.0.2",
-  "description": "Fromat GROQ strings in Node.js",
+  "description": "Format GROQ strings in Node.js",
   "main": "index.js",
   "author": "Niklas May <post@niklas-may.de>",
   "license": "MIT",

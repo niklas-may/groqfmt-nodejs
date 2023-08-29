@@ -12,28 +12,27 @@ const packageJson = JSON.parse(fs.readFileSync(path.join(".", "package.json")));
 
 const execPromise = util.promisify(childProcess.exec);
 
-function validateConfiguration() {
-  if (!packageJson.groqfmtBinaries || typeof packageJson.groqfmtBinaries !== "object") {
-    throw new Error("'groqfmtBinaries' property must be defined and be an object");
-  }
+function getBinUrl() {
+  const url = packageJson.groqfmtBinaries[process.platform];
 
-  if (!packageJson.groqfmtBinaries[process.platform]) {
+  if (!url) {
     throw new Error("Installation is not supported for this platform: " + process.platform);
   }
+
+  return url;
 }
 
 async function install() {
   try {
-    validateConfiguration();
-    
-    const binUrl = packageJson.groqfmtBinaries[process.platform];
+    const binUrl = getBinUrl();
     const fileName = path.basename(binUrl).includes(".exe") ? "groqfmt.exe" : "groqfmt";
-    const targetDir = path.join(process.cwd(), "bin");
-    mkdirp(targetDir);
-
-    await execPromise(`curl -L -o ${targetDir}/groqfmt ${binUrl} && chmod +x bin/${fileName}`);
+    const fileDir = path.join(process.cwd(), "bin");
+    const filePath = `${targetDir}/${fileName}`;
+    
+    mkdirp(fileDir);
+    await execPromise(`curl -L -o ${filePath} ${binUrl} && chmod +x ${filePath}`);
   } catch (e) {
-    console.log(`Error installing groqfmt-nodejs: ${e.message}`);
+    console.log(`Error installing "${packageJson.name}": ${e.message}`);
   }
 }
 

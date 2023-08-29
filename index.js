@@ -4,16 +4,14 @@ const execProm = util.promisify(exec);
 const path = require("path");
 
 const dirName = path.resolve(__dirname);
+const tempFilePath = path.join(dirName, "temp.groq");
+const binPath = path.join(dirName, "bin/groqfmt");
 
 async function format(str) {
   let result;
 
-  const strSanitized = str.replace(/"/g, "'");
-
-  const tempFilePath = path.join(dirName, "temp.groq");
-  const binPath = path.join(dirName, "bin/groqfmt");
-
   try {
+    const strSanitized = str.replace(/"/g, "'");
     result = await execProm(`echo "${strSanitized}" | tee ${tempFilePath} | ${binPath} ${tempFilePath} `);
     return result.stdout;
   } catch (ex) {
