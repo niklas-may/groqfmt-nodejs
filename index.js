@@ -11,7 +11,7 @@ async function format(str) {
   let result;
 
   try {
-    const strSanitized = str.replace(/"/g, "'");
+    const strSanitized = str.replace(/"/g, "'").replace(/\$/g, '\\$');
     result = await execProm(`echo "${strSanitized}" | tee ${tempFilePath} | ${binPath} ${tempFilePath} `);
     return result.stdout;
   } catch (ex) {
