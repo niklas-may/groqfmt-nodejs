@@ -1,6 +1,6 @@
 {
   "name": "groqfmt-nodejs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Format GROQ strings in Node.js",
   "main": "index.js",
   "author": "Niklas May <post@niklas-may.de>",
@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/niklas-may/groqfmt-nodejs/issues"
   },
-  "homepage": "https://github.com/niklas-may/groqfmt-nodejs#readme"
+  "homepage": "https://github.com/niklas-may/groqfmt-nodejs#readme",
+  "dependencies": {
+    "mkdirp": "^3.0.1"
+  }
 }
