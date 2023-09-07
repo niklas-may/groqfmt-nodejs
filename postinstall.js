@@ -6,7 +6,6 @@ const fs = require("fs");
 const path = require("path");
 const childProcess = require("child_process");
 const util = require("util");
-const mkdirp = require("mkdirp");
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(".", "package.json")));
 
@@ -26,10 +25,8 @@ async function install() {
   try {
     const binUrl = getBinUrl();
     const fileName = path.basename(binUrl).includes(".exe") ? "groqfmt.exe" : "groqfmt";
-    const fileDir = path.join(process.cwd(), "bin");
     const filePath = `bin/${fileName}`;
-    
-    mkdirp(fileDir);
+
     await execPromise(`curl -L -o ${filePath} ${binUrl} && chmod +x ${filePath}`);
   } catch (e) {
     console.log(`Error installing "${packageJson.name}": ${e.message}`);
