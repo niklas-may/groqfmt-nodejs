@@ -1,6 +1,6 @@
 {
   "name": "groqfmt-nodejs",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Format GROQ strings in Node.js",
   "main": "index.js",
   "author": "Niklas May <post@niklas-may.de>",
