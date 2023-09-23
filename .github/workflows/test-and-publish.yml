@@ -16,13 +16,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies and build 🔧
         run: yarn install --frozen-lockfile 
-      - name: test install
-        run: |
-              if [[ -e /bin/groqfmt ]]; then
-                echo "Binary exists."
-               else
-                echo "Binary does not exist."
-               fi
       - name: Test
         run: yarn test --run
       
