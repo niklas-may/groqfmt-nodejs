@@ -12,7 +12,14 @@ const packageJson = JSON.parse(fs.readFileSync(path.join(".", "package.json")));
 const execPromise = util.promisify(childProcess.exec);
 
 function getBinUrl() {
-  const url = packageJson.groqfmtBinaries[process.platform];
+  let key = process.platform;
+
+  if (key === "linux") {
+    // process.arch ‘x32’, ‘x64’, ‘arm’, ‘arm64’, ‘s390’, ‘s390x’, ‘mipsel’, ‘ia32’, ‘mips’, ‘ppc’ and ‘ppc64’.
+    key = process.platform + "-" + process.arch;
+  }
+
+  const url = packageJson.groqfmtBinaries[key];
 
   if (!url) {
     throw new Error("Installation is not supported for this platform: " + process.platform);

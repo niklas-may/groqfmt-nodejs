@@ -8,7 +8,9 @@
   "types": "index.d.ts",
   "groqfmtBinaries": {
     "darwin": "https://github.com/sanity-io/groqfmt/releases/download/v1.0.0/groqfmt-darwin-amd64",
-    "linux": "https://github.com/sanity-io/groqfmt/releases/download/v1.0.0/groqfmt-linux-arm",
+    "linux-x64": "https://github.com/sanity-io/groqfmt/releases/download/v1.0.0/groqfmt-linux-amd64",
+    "linux-arm": "https://github.com/sanity-io/groqfmt/releases/download/v1.0.0/groqfmt-linux-arm",
+    "linux-arm64": "https://github.com/sanity-io/groqfmt/releases/download/v1.0.0/groqfmt-linux-arm",
     "win32": "https://github.com/sanity-io/groqfmt/releases/download/v1.0.0/groqfmt-windows-amd64.exe"
   },
   "scripts": {
