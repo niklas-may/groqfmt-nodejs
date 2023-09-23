@@ -16,6 +16,12 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies and build 🔧
         run: yarn install --frozen-lockfile 
+      - name: test install
+        run: if [[ -e /path/to/file.txt ]]; then
+              echo "File exists."
+             else
+              echo "File does not exist."
+             fi
       - name: Test
         run: yarn test --run
       
