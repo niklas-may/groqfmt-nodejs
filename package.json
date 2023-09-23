@@ -13,7 +13,8 @@
   },
   "scripts": {
     "dev": "npx nodemon dev.js",
-    "postinstall": "node postinstall.js"
+    "postinstall": "node postinstall.js",
+    "test": "vitest"
   },
   "bin": {
     "groqfmt": "bin/grofmt"
@@ -34,5 +35,8 @@
   "homepage": "https://github.com/niklas-may/groqfmt-nodejs#readme",
   "dependencies": {
     "mkdirp": "^3.0.1"
+  },
+  "devDependencies": {
+    "vitest": "^0.34.5"
   }
 }
