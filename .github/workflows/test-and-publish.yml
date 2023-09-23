@@ -1,6 +1,5 @@
 name: Test and Publish to NPM
 on:
-  workflow_dispatch:
   release:
     types: [created]
 jobs:
@@ -16,7 +15,9 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies and build 🔧
         run: yarn install --frozen-lockfile 
-      - name: Test
+      - name: Run Test
         run: yarn test --run
-      
-      
+      - name: Publish package on NPM 📦
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
