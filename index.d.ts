@@ -1,3 +1,3 @@
 declare module "groqfmt-nodejs" {
-  export function format(groq: string): Promise<string> {}
+  export function format(groq: string): string {}
 }

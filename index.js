@@ -1,21 +1,17 @@
 #!/usr/bin/bash
 
-const util = require("util");
-const { exec } = require("child_process");
-const execProm = util.promisify(exec);
+const { execSync } = require("child_process");
 const path = require("path");
 
 const dirName = path.resolve(__dirname);
 const tempFilePath = path.join(dirName, "temp.groq");
 const binPath = path.join(dirName, "bin/groqfmt");
 
-async function format(str) {
-  let result;
-
+function format(str) {
   try {
-    const strSanitized = str.replace(/"/g, "'").replace(/\$/g, '\\\$');
-    result = await execProm(`echo "${strSanitized}" | tee ${tempFilePath} | ${binPath} ${tempFilePath} `);
-    return result.stdout;
+    const strSanitized = str.replace(/"/g, "'").replace(/\$/g, "\\$");
+    const result = execSync(`echo "${strSanitized}" | tee ${tempFilePath} | ${binPath} ${tempFilePath}`);
+    return result.toString();
   } catch (ex) {
     throw new Error(ex);
   }

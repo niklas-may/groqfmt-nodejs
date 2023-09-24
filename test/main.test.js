@@ -1,12 +1,10 @@
-import { describe, test, expect } from "vitest";
+import { test, expect } from "vitest";
 import { format } from "../index.js";
 import fs from "fs";
 
-
 test("Should format", async () => {
-  return format(queryIn).then((res) => {
-    return expect(res).toEqual(reference);
-  });
+  const result = format(queryIn);
+  expect(result).toEqual(reference);
 });
 
 const reference = fs.readFileSync("./test/reference.txt", "utf-8");
